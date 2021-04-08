@@ -4,7 +4,7 @@
 
 int		main()
 {
-	PhoneBook book = PhoneBook(0);
+	PhoneBook book;
 	book.Run();
 	return (0);
 }
