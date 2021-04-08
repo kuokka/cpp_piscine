@@ -4,8 +4,7 @@
 
 int		main()
 {
-	PhoneBook book;
-	book.add_address();
-	book.show_phone_book();
+	PhoneBook book = PhoneBook(0);
+	book.Run();
 	return (0);
 }
