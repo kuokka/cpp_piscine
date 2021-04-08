@@ -1,32 +1,29 @@
 #include <iostream>
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() {
-	current_index_ = 0;
+
+PhoneBook::PhoneBook(int current_index)
+	: current_index_(current_index) {}
+
+void	PhoneBook::Run()
+{
+	std::string temp;
+	std::cout << "Start !!" << std::endl;
+	std::cin >> temp;
+	std::cout << temp << std::endl;
 }
 
-void	PhoneBook::add_address() {
-	std::cin >> address_[current_index_].first_name_;
-	std::cin >> address_[current_index_].last_name_;
-	std::cin >> address_[current_index_].nickname_;
-	std::cin >> address_[current_index_].login_;
-	std::cin >> address_[current_index_].postal_address_;
-	std::cin >> address_[current_index_].email_address_;
-	std::cin >> address_[current_index_].phone_number_;
-	std::cin >> address_[current_index_].birthday_date_;
-	std::cin >> address_[current_index_].favorite_meal_;
-	std::cin >> address_[current_index_].underwear_color_;
-	std::cin >> address_[current_index_].darkset_secret_;
-	current_index_++;
-	current_index_ %= 8;
+void	PhoneBook::AddAddress()
+{
+	std::cout << "Add!" << std::endl;
 }
 
-void	PhoneBook::show_phone_book() const {
-	
-	for (int i = 0; i < current_index_; ++i)
-	{
-		std::cout << "index is : [" << i << "]" << std::endl;
-		address_[current_index_].show_address();
-		std::cout << std::endl;
-	}
+void	PhoneBook::SearchAddress()
+{
+	std::cout << "Search !!" << std::endl;
+}
+
+void	PhoneBook::PrintAddress()
+{
+	std::cout << "Print !!" << std::endl;
 }
