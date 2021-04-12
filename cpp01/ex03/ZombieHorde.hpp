@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/09 14:15:34 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/04/12 18:27:44 by seunghoh         ###   ########.fr       */
+/*   Created: 2021/04/12 14:04:21 by seunghoh          #+#    #+#             */
+/*   Updated: 2021/04/12 18:33:27 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef ZOMBIEHORDE_HPP
+# define ZOMBIEHORDE_HPP
 
+# include "Zombie.hpp"
 # include <string>
 
-class	Zombie
+class ZombieHorde
 {
 	private:
-		std::string	name_;
-		std::string	type_;
+		const static std::string name_pool[8];
+		Zombie	*horde_;
+		int		horde_size_;
+		ZombieHorde();
 
 	public:
-		Zombie();
-		Zombie(std::string name, std::string type);
-		void	set_name(std::string name);
-		void	set_type(std::string type);
+		ZombieHorde(int n);
+		~ZombieHorde();
 		void	announce() const;
 };
 

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/09 14:15:34 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/04/12 18:27:44 by seunghoh         ###   ########.fr       */
+/*   Created: 2021/04/12 19:38:58 by seunghoh          #+#    #+#             */
+/*   Updated: 2021/04/12 19:40:48 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
 # include <string>
+# include "Weapon.hpp"
 
-class	Zombie
+class	HumanB
 {
 	private:
-		std::string	name_;
-		std::string	type_;
+		std::string name_;
+		Weapon*		weapon_;
 
 	public:
-		Zombie();
-		Zombie(std::string name, std::string type);
-		void	set_name(std::string name);
-		void	set_type(std::string type);
-		void	announce() const;
+		HumanB(std::string name);
+		void	setWeapon(Weapon& weapon);
+		void	attack() const;
 };
 
 #endif

@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/09 14:15:31 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/04/12 18:28:28 by seunghoh         ###   ########.fr       */
+/*   Created: 2021/04/12 19:40:32 by seunghoh          #+#    #+#             */
+/*   Updated: 2021/04/12 19:43:12 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-#include "Zombie.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
-Zombie::Zombie()
-	: name_("None"),
-	  type_("normal") {}
-
-Zombie::Zombie(std::string name, std::string type)
+HumanB::HumanB(std::string name)
 	: name_(name),
-	  type_(type) {}
+	  weapon_(NULL) {}
 
-void	Zombie::set_name(std::string name)
+void	HumanB::setWeapon(Weapon& weapon)
 {
-	name_ = name;
+	weapon_ = &weapon;
 }
 
-void	Zombie::set_type(std::string type)
+void	HumanB::attack() const
 {
-	type_ = type;
-}
-
-void	Zombie::announce() const
-{
-	std::cout << "<"
-			  << name_
-			  << " ("
-			  << type_
-			  << ")>"
-			  << " Grrrrrrrr...."
-			  << std::endl;
+	if (weapon_ == NULL)
+		return ;
+	
+	std::cout << name_ << " attacks with his " << weapon_->getType() << std::endl;
 }
