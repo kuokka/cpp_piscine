@@ -6,11 +6,12 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 17:02:42 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/04/09 17:53:04 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/11 00:27:32 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <random>
+#include <ctime>
+#include <cstdlib>
 #include "Zombie.hpp"
 #include "ZombieEvent.hpp"
 
@@ -42,12 +43,8 @@ Zombie*	ZombieEvent::newZombie(std::string name) const
 Zombie*	ZombieEvent::randomChump() const
 {
 	Zombie*	zombie;
-	
-	std::random_device seed;
-	std::mt19937 generator(seed());
-	std::uniform_int_distribution<int> selector(0, 7);
-	
-	zombie = new Zombie(name_pool[selector(generator)], type_);
+	srand(time(NULL));	
+	zombie = new Zombie(name_pool[rand() % 8], type_);
 	zombie->announce();
 	return (zombie);
 }
