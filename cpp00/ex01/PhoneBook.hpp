@@ -5,6 +5,7 @@
 # include "Address.hpp"
 
 // c++ 11에서는 enum class 사용
+// 여기서는 아직 못사용함
 enum status
 {
 	ADD,
