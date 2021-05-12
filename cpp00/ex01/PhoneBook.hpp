@@ -23,6 +23,7 @@ class PhoneBook
 	public :
 		PhoneBook();
 		void	Run();
+		void	Read();
 		status	ParseStatus(std::string task);
 		void	AddAddress();
 		void	SearchAddress() const;
