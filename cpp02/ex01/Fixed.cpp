@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:34:32 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/04/26 18:56:35 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/12 21:35:31 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Fixed::Fixed(const int value_) {
 
 Fixed::Fixed(const float value_) {
 	std::cout << "Float constructor called" << std::endl;
-	value = std::roundf(value_ * (1 << fraction_bit));
+	value = roundf(value_ * (1 << fraction_bit));
 }
 
 Fixed::Fixed(const Fixed& ref) {
