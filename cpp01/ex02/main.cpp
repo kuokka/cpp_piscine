@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:42:53 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/04/12 18:29:35 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/12 21:38:55 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void	check_leak()
 int		main()
 {
 	check_leak();	
-	system("leaks a.out");
+	//system("leaks a.out");
 	return (0);
 }
