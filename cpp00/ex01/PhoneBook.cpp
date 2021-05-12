@@ -8,7 +8,7 @@ namespace {
 		std::string	field;
 
 		std::cout << label << " : ";
-		std::cin >> field;
+		std::getline(std::cin, field);
 		return (field);
 	}
 	
@@ -18,6 +18,15 @@ namespace {
 			return (str.substr(0, 9) + ".");
 		else
 			return (str);
+	}
+
+	void ToUpper(std::string& str)
+	{
+		for (unsigned long i = 0; i < str.size(); i++)
+		{
+			if ('a' <= str[i] && str[i] <= 'z')
+				str[i] = str[i] - 'a' + 'A';
+		}
 	}
 }
 
@@ -29,11 +38,11 @@ void	PhoneBook::Run()
 {
 	status		s;
 	std::string	task;
+	
 
-	do
+	std::cout << "Type Command : ";
+	while(std::getline(std::cin, task))
 	{
-		std::cout << "Type Command : ";
-		std::cin >> task;
 		s = ParseStatus(task);
 		switch (s)
 		{
@@ -46,15 +55,18 @@ void	PhoneBook::Run()
 			case EXIT:
 				return;
 			default:
+				std::cout << "Invalid Commands" << std::endl;
 				break;
 		}
-	} while (!std::cin.eof());
+		std::cout << "Type Command : ";
+	}
 }
 
 status	PhoneBook::ParseStatus(std::string task)
 {
 	status		s;
 
+	ToUpper(task);
 	if (task == "ADD")
 		s = ADD;
 	else if (task == "SEARCH")
@@ -171,10 +183,10 @@ void	PhoneBook::ChooseAddress() const
 
 	index = 0;
 	std::cout << "Choose Index [Default : 0]: ";
-	std::cin >> input;
+	std::getline(std::cin, input);
 	stream.str(input);
 	stream >> index;
-	if (index >= 0 && index < current_size_)
+	if (index >= 0 && index < current_size_ && stream.eof())
 		address_[index].PrintAddress();
 	else
 		std::cout << "Not Available Index" << std::endl << std::endl;
