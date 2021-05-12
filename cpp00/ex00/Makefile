@@ -6,13 +6,13 @@
 #    By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/03 14:24:45 by seunghoh          #+#    #+#              #
-#    Updated: 2021/04/03 17:09:51 by seunghoh         ###   ########.fr        #
+#    Updated: 2021/05/12 21:34:02 by seunghoh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror --std=c++98
 
 SRCS = megaphone.cpp
 
