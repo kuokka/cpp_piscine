@@ -1,17 +1,17 @@
-/* ************************************************************************** */
+int const & target;int const & target; 20 # define YEL "\e[0;33m" 20 # define YEL "\e[0;33m"/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:25:30 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/13 20:22:14 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/13 20:23:31 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # define ORG "\033[0m"
 # define BLK "\e[0;30m"
@@ -27,9 +27,8 @@
 
 typedef unsigned int	uint;
 
-class	FragTrap
+class	ScavTrap
 {
-	
 	private :
 		uint	hp_;
 		uint	max_hp_;
@@ -43,11 +42,11 @@ class	FragTrap
 		uint	armor_;
 	
 	public :
-		FragTrap();
-		FragTrap(std::string name);
-		FragTrap(FragTrap const &ref);
-		FragTrap&	operator=(FragTrap const &ref);
-		~FragTrap();
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap& ref);
+		ScavTrap&	operator=(const ScavTrap &ref);
+		~ScavTrap();
 		std::string getName() const;
 		uint	getRangedAD() const;
 		uint	getMeleeAD() const;
@@ -56,12 +55,7 @@ class	FragTrap
 		void	meleeAttack(std::string const &target) const;
 		void	takeDamage(uint amount);
 		void	beRepaired(uint amount);
-		void	laserAttack(std::string const &target) const;
-		void	fiestaAttack(std::string const &target) const;
-		void	canonAttack(std::string const &target) const;
-		void	shotAttack(std::string const &target) const;
-		void	magicAttack(std::string const &target) const;
-		void	vaulthunter_dot_exe(std::string const &target);
+		void	challengeNewcomer(std::string const &target);
 };
 
 #endif
