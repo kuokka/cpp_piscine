@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 16:25:30 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/14 11:46:03 by seunghoh         ###   ########.fr       */
+/*   Created: 2021/05/14 18:26:25 by seunghoh          #+#    #+#             */
+/*   Updated: 2021/05/14 19:45:07 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # define ORG "\033[0m"
 # define BLK "\e[0;30m"
@@ -27,27 +27,30 @@
 
 typedef unsigned int	uint;
 
-class	ScavTrap
+class	ClapTrap
 {
-	private :
+	protected:
+		std::string	type_;
+		std::string melee_quote;
+		std::string ranged_quote;
 		uint	hp_;
 		uint	max_hp_;
 		uint	mp_;
 		uint	max_mp_;
 		uint	level_;
-		std::string	name_;
+		std::string name_;
 		uint	melee_ad_;
 		uint	ranged_ad_;
 		uint	skill_ad_;
 		uint	armor_;
 	
-	public :
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap& ref);
-		ScavTrap&	operator=(const ScavTrap &ref);
-		~ScavTrap();
-		std::string getName() const;
+	public:
+		ClapTrap();
+		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap& ref);
+		~ClapTrap();
+		ClapTrap&	operator=(const ClapTrap& ref);
+		std::string	getName() const;
 		uint	getRangedAD() const;
 		uint	getMeleeAD() const;
 		uint	getSkillAD() const;
@@ -55,7 +58,6 @@ class	ScavTrap
 		void	meleeAttack(std::string const &target) const;
 		void	takeDamage(uint amount);
 		void	beRepaired(uint amount);
-		void	challengeNewcomer(std::string const &target);
 };
 
 #endif
