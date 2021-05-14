@@ -6,12 +6,11 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:25:22 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/13 20:22:19 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/14 16:12:54 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ********a****************************************************************** */
 
 #include <iostream>
-#include <ctime>
 #include <cstdlib>
 #include "FragTrap.hpp"
 

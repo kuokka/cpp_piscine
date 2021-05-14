@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 17:04:46 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/13 17:02:58 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/14 15:45:23 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int		main()
 	FragTrap	b = FragTrap("Paka");
 	FragTrap	c = a;
 
-	srand(time(NULL));
 	c = b;
+	srand(time(NULL));
 	c.rangedAttack(a.getName());
 	a.takeDamage(c.getRangedAD());
 	c.meleeAttack(a.getName());
