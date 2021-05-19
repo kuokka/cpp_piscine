@@ -6,12 +6,11 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:07:02 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/12 21:40:35 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/19 23:06:38 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
-#include <ctime>
 #include "ZombieHorde.hpp"
 
 const std::string ZombieHorde::name_pool[8] = {
@@ -32,7 +31,6 @@ ZombieHorde::ZombieHorde(int n)
 	horde_size_ = n;
 	horde_ = new Zombie[horde_size_];
 
-	srand(time(NULL));
 	for (int i = 0; i < horde_size_; ++i)
 	{
 		horde_[i].set_name(name_pool[rand() % 8]);
