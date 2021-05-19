@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 02:51:49 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/04/13 03:36:12 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/19 23:09:12 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 #include <fstream>
 #include <string>
 #include "Modifier.hpp"
-
-/*namespace {
-	int	findSubstr(std::string);
-}*/
 
 Modifier::Modifier(std::string input_file_,
 				   std::string old_string_,

@@ -6,11 +6,10 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 17:02:42 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/11 00:27:32 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/19 23:04:49 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctime>
 #include <cstdlib>
 #include "Zombie.hpp"
 #include "ZombieEvent.hpp"
@@ -43,7 +42,6 @@ Zombie*	ZombieEvent::newZombie(std::string name) const
 Zombie*	ZombieEvent::randomChump() const
 {
 	Zombie*	zombie;
-	srand(time(NULL));	
 	zombie = new Zombie(name_pool[rand() % 8], type_);
 	zombie->announce();
 	return (zombie);

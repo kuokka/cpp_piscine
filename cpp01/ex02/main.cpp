@@ -6,10 +6,12 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:42:53 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/12 21:38:55 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/19 23:05:41 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ctime>
+#include <cstdlib>
 #include "Zombie.hpp"
 #include "ZombieEvent.hpp"
 
@@ -17,7 +19,7 @@ void	check_leak()
 {
 	Zombie* z[4];
 	ZombieEvent	event;
-
+	
 	z[0] = new Zombie("trump", "crazy");
 	z[0]->announce();
 	z[1] = event.newZombie("seunghoh");
@@ -34,7 +36,8 @@ void	check_leak()
 
 int		main()
 {
-	check_leak();	
+	srand(time(NULL));
+	check_leak();
 	//system("leaks a.out");
 	return (0);
 }
