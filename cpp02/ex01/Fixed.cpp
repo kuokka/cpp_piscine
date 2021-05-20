@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 17:34:32 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/12 21:35:31 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/20 21:56:45 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	Fixed::setRawBits(int const raw) {
 }
 
 float	Fixed::toFloat(void) const {
-	return (float)value / (1 << fraction_bit);
+	return ((float)value) / (1 << fraction_bit);
 }
 
 int		Fixed::toInt(void) const {
