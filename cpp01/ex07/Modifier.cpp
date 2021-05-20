@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 02:51:49 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/19 23:09:12 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/20 14:43:07 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	Modifier::modify()
 	while (pos != std::string::npos)
 	{
         text.replace(pos, old_string.length(), new_string);
-		pos = text.find(old_string, pos + 1);
+		pos = text.find(old_string, pos + new_string.length());
 	}
 	out << text;
 	return (0);
