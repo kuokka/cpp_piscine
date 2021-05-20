@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:55:16 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/19 23:06:56 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/20 13:20:44 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	check_leak()
 {
-	ZombieHorde horde1(5);
+	ZombieHorde	horde1(5);
 	ZombieHorde	horde2(6);
 
 	std::cout << "Horde1 Announce" << std::endl;
