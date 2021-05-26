@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 19:15:27 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/14 16:12:45 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:57:34 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 ScavTrap::ScavTrap()
 	:	hp_(100),
 		max_hp_(100),
-		mp_(100),
-		max_mp_(100),
+		mp_(50),
+		max_mp_(50),
 		level_(1),
 		name_("Unknown"),
 		melee_ad_(20),
@@ -31,8 +31,8 @@ ScavTrap::ScavTrap()
 ScavTrap::ScavTrap(std::string name)
 	:	hp_(100),
 		max_hp_(100),
-		mp_(100),
-		max_mp_(100),
+		mp_(50),
+		max_mp_(50),
 		level_(1),
 		name_(name),
 		melee_ad_(20),
@@ -45,8 +45,8 @@ ScavTrap::ScavTrap(std::string name)
 ScavTrap::ScavTrap(const ScavTrap& ref)
 	:	hp_(ref.hp_),
 		max_hp_(ref.max_hp_),
-		mp_(100),
-		max_mp_(100),
+		mp_(ref.mp_),
+		max_mp_(ref.max_mp_),
 		level_(ref.level_),
 		name_(ref.name_),
 		melee_ad_(ref.melee_ad_),

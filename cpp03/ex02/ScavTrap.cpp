@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 19:15:27 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/14 16:12:23 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:54:33 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,49 +15,54 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
-	:	hp_(100),
-		max_hp_(100),
-		mp_(100),
-		max_mp_(100),
-		level_(1),
-		name_("Unknown"),
-		melee_ad_(20),
-		ranged_ad_(15),
-		armor_(3)
+	:	ClapTrap()
 {
+	type_ = "SC4V-TP";
+	melee_quote = SC4V_MELEE_QUOTE;
+	ranged_quote = SC4V_RANGED_QUOTE;
+	damage_quote = SC4V_DAMAGE_QUOTE;
+	repair_quote = SC4V_REPAIR_QUOTE;
+	melee_ad_ = 20;
+	ranged_ad_ = 15;
+	armor_ = 3;
 	std::cout << "ScavTrap Default Constructor Called!" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name)
-	:	hp_(100),
-		max_hp_(100),
-		mp_(100),
-		max_mp_(100),
-		level_(1),
-		name_(name),
-		melee_ad_(20),
-		ranged_ad_(15),
-		armor_(3)
+	:	ClapTrap(name)
 {
+	type_ = "SC4V-TP";
+	melee_quote = SC4V_MELEE_QUOTE;
+	ranged_quote = SC4V_RANGED_QUOTE;
+	damage_quote = SC4V_DAMAGE_QUOTE;
+	repair_quote = SC4V_REPAIR_QUOTE;
+	melee_ad_ = 20;
+	ranged_ad_ = 15;
+	armor_ = 3;
 	std::cout << "ScavTrap Constructor Called!" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& ref)
-	:	hp_(ref.hp_),
-		max_hp_(ref.max_hp_),
-		mp_(100),
-		max_mp_(100),
-		level_(ref.level_),
-		name_(ref.name_),
-		melee_ad_(ref.melee_ad_),
-		ranged_ad_(ref.ranged_ad_),
-		armor_(ref.armor_)
+	:	ClapTrap(ref.name_)
 {
+	melee_quote = ref.melee_quote;
+	ranged_quote = ref.ranged_quote;
+	damage_quote = ref.damage_quote;
+	repair_quote = ref.repair_quote;
+	melee_ad_ = ref.melee_ad_;
+	ranged_ad_ = ref.ranged_ad_;
+	armor_ = ref.armor_;
+	type_ = ref.type_;
 	std::cout << "ScavTrap Copy Constructor Called!" << std::endl;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& ref)
 {
+	melee_quote = ref.melee_quote;
+	ranged_quote = ref.ranged_quote;
+	damage_quote = ref.damage_quote;
+	repair_quote = ref.repair_quote;
+	type_ = ref.type_;
 	hp_ = ref.hp_;
 	max_hp_ = ref.max_hp_;
 	mp_ = ref.mp_;
@@ -76,93 +81,12 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap Destructor Called!" << std::endl;
 }
 
-std::string	ScavTrap::getName() const
-{
-	return name_;
-}
-
-uint	ScavTrap::getMeleeAD() const
-{
-	return melee_ad_;
-}
-
-uint	ScavTrap::getRangedAD() const
-{
-	return ranged_ad_;
-}
-
-uint	ScavTrap::getSkillAD() const
-{
-	return skill_ad_;
-}
-
-void	ScavTrap::rangedAttack(std::string const &target) const
-{
-	std::cout << std::endl;
-	std::cout << "*** Ranged Attack [damage : " << BLU << ranged_ad_ << ORG << "] ***" <<std::endl;
-	std::cout << YEL << name_ << ORG << " : You're listening to 'Short-Range Damage Radio'." << std::endl;
-	std::cout << MAG << "SC4V-TP " << YEL << name_ << ORG << " ";
-	std::cout << "[" << BLU << hp_ << ORG << "]";
-	std::cout << "[" << GRN << mp_ << ORG << "]";
-	std::cout << " attacks " << YEL << target << ORG << std::endl;
-}
-
-void	ScavTrap::meleeAttack(std::string const &target) const
-{
-	std::cout << std::endl;
-	std::cout << "*** Melee Attack [damage : " << BLU << melee_ad_ << ORG << "] ***" <<std::endl;
-	std::cout << YEL << name_ << ORG << " : Pain school is now in session." << std::endl;
-	std::cout << MAG << "SC4V-TP " << YEL << name_ << ORG << " ";
-	std::cout << "[" << BLU << hp_ << ORG << "]";
-	std::cout << "[" << GRN << mp_ << ORG << "]";
-	std::cout << " attacks " << YEL << target << ORG << std::endl;
-}
-
-void	ScavTrap::takeDamage(uint amount)
-{
-	if (amount > armor_)
-		amount -= armor_;
-	else
-		amount = 0;
-    std::cout << std::endl;
-    std::cout << "*** Take Damage [damage : " << BLU << amount << ORG << "] ***" <<std::endl;
-    std::cout << YEL << name_ << ORG << " : Why do I even feel pain?" << std::endl;
-    std::cout << MAG << "SC4V-TP " << YEL << name_ << ORG << " ";
-    std::cout << "[" << BLU << hp_ << ORG << "]";
-    std::cout << "[" << GRN << mp_ << ORG << "]";
-    if (amount > hp_)
-        hp_ = 0;
-    else
-        hp_ -= amount;
-    std::cout << " => ";
-    std::cout << "[" << BLU << hp_ << ORG << "]";
-    std::cout << "[" << GRN << mp_ << ORG << "]";
-    std::cout << std::endl;
-}
-
-void	ScavTrap::beRepaired(uint amount)
-{
-	hp_ += amount;
-    mp_ += amount;
-    if (hp_ > 100)
-        hp_ = 100;
-    if (mp_ > 100)
-        mp_ = 100;
-    std::cout << std::endl;
-    std::cout << "*** Repair [amount : " << BLU << amount << ORG << "] ***" <<std::endl;
-    std::cout << YEL << name_ << ORG << " : Sweet life juice!" << std::endl;
-    std::cout << MAG << "SC4V-TP " << YEL << name_ << ORG << " ";
-    std::cout << "[" << BLU << hp_ << ORG << "]";
-    std::cout << "[" << GRN << mp_ << ORG << "]";
-    std::cout << std::endl;
-}
-
 void	ScavTrap::challengeNewcomer(const std::string& target)
 {	
 	if (mp_ < 25)
 	{
 		std::cout << std::endl;
-		std::cout << MAG << "SC4V-TP " << YEL << name_ << ORG << " ";
+		std::cout << MAG << type_ << " " << YEL << name_ << ORG << " ";
     	std::cout << "[" << BLU << hp_ << ORG << "]";
     	std::cout << "[" << GRN << mp_ << ORG << "]";
 		std::cout << " : Not Enough Energy ! " << std::endl;
@@ -177,12 +101,11 @@ void	ScavTrap::challengeNewcomer(const std::string& target)
 		"You wanna fight with me?! Put 'em up!.. Put 'em up?",
 		"A million baddies, and you wanna hit me? Aww!"
 	};
-	rand();
 	std::cout << std::endl;
 	std::cout << "*** New Challenge ***" << std::endl;
 	std::cout << YEL << name_ << ORG << " : ";
 	std::cout << quote_pool[rand() % 7] << std::endl;
-	std::cout << MAG << "SC4V-TP " << YEL << name_ << ORG << " ";
+	std::cout << MAG << type_ << " " << YEL << name_ << ORG << " ";
    	std::cout << "[" << BLU << hp_ << ORG << "]";
    	std::cout << "[" << GRN << mp_ << ORG << "]";
 	std::cout << " Challenge to " << YEL << target << ORG << std::endl;
