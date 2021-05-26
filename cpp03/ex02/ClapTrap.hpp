@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 18:26:25 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/14 19:45:07 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:25:29 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,22 @@
 # define CYN "\e[0;36m"
 # define WHT "\e[0;37m"
 
-# include <string>
+# define CL4P_MELEE_QUOTE "This is why you do your homework!"
+# define CL4P_RANGED_QUOTE "In yo' FACE!"
+# define CL4P_DAMAGE_QUOTE "Why do I even feel pain?!"
+# define CL4P_REPAIR_QUOTE "Health! Eww, what flavor is red?"
 
+# include <string>
 typedef unsigned int	uint;
 
 class	ClapTrap
 {
 	protected:
+		std::string	melee_quote;
+		std::string	ranged_quote;
+		std::string	damage_quote;
+		std::string	repair_quote;
 		std::string	type_;
-		std::string melee_quote;
-		std::string ranged_quote;
 		uint	hp_;
 		uint	max_hp_;
 		uint	mp_;
@@ -41,7 +47,6 @@ class	ClapTrap
 		std::string name_;
 		uint	melee_ad_;
 		uint	ranged_ad_;
-		uint	skill_ad_;
 		uint	armor_;
 	
 	public:
