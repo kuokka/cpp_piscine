@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   Dragon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 19:14:51 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/28 20:36:19 by seunghoh         ###   ########.fr       */
+/*   Created: 2021/05/28 20:55:47 by seunghoh          #+#    #+#             */
+/*   Updated: 2021/05/28 21:01:38 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef DRAGON_HPP
+# define DRAGON_HPP
 
-# include <string>
-# include <iostream>
+# include "Enemy.hpp"
 
-class	Victim
+class	Dragon : public Enemy
 {
-	protected :
-		std::string	name_;
-		Victim();
-		void	print_born() const;
-
 	public :
-		Victim(std::string name);
-		Victim(const Victim& ref);
-		Victim&	operator=(const Victim& ref);
-		virtual ~Victim();
-		std::string	getName() const;
-		virtual void	getPolymorphed() const;
+		Dragon();
+		Dragon(const Dragon& ref);
+		Dragon&	operator=(const Dragon& ref);
+		~Dragon();
+		void	takeDamage(int damage);
 };
-
-std::ostream&	operator<<(std::ostream& os, const Victim& ref);
 
 #endif

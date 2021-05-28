@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   Troll.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 19:14:51 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/28 20:36:19 by seunghoh         ###   ########.fr       */
+/*   Created: 2021/05/28 20:35:01 by seunghoh          #+#    #+#             */
+/*   Updated: 2021/05/28 20:36:08 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef TROLL_HPP
+# define TROLL_HPP
 
 # include <string>
-# include <iostream>
+# include "Victim.hpp"
 
-class	Victim
+class	Troll : public Victim
 {
-	protected :
-		std::string	name_;
-		Victim();
-		void	print_born() const;
-
+	private :
+		Troll();
+	
 	public :
-		Victim(std::string name);
-		Victim(const Victim& ref);
-		Victim&	operator=(const Victim& ref);
-		virtual ~Victim();
-		std::string	getName() const;
-		virtual void	getPolymorphed() const;
+		Troll(std::string name);
+		Troll(const Troll& ref);
+		Troll&	operator=(const Troll& ref);
+		~Troll();
+		void	getPolymorphed() const;
 };
-
-std::ostream&	operator<<(std::ostream& os, const Victim& ref);
 
 #endif

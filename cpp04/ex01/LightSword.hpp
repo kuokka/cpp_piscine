@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   LightSword.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 19:14:51 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/28 20:36:19 by seunghoh         ###   ########.fr       */
+/*   Created: 2021/05/28 20:30:03 by seunghoh          #+#    #+#             */
+/*   Updated: 2021/05/28 20:46:30 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef LIGHTSWORD_HPP
+# define LIGHTSWORD_HPP
 
-# include <string>
-# include <iostream>
+# include "AWeapon.hpp"
 
-class	Victim
+class	LightSword : public AWeapon
 {
-	protected :
-		std::string	name_;
-		Victim();
-		void	print_born() const;
-
 	public :
-		Victim(std::string name);
-		Victim(const Victim& ref);
-		Victim&	operator=(const Victim& ref);
-		virtual ~Victim();
-		std::string	getName() const;
-		virtual void	getPolymorphed() const;
+		LightSword();
+		LightSword(const LightSword& ref);
+		LightSword&	operator=(const LightSword& ref);
+		~LightSword();
+		void	attack() const;
 };
-
-std::ostream&	operator<<(std::ostream& os, const Victim& ref);
 
 #endif

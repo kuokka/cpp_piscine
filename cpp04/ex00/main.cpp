@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 17:11:40 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/27 20:03:22 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/28 20:42:37 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Sorcerer.hpp"
 #include "Victim.hpp"
 #include "Peon.hpp"
+#include "Troll.hpp"
 
 int		main()
 {
@@ -59,6 +60,11 @@ int		main()
 
 	tester = &joe;
 	tester->getPolymorphed();
+	
+	Troll	james("james");
+
+	std::cout << james;
+	robert.polymorph(james);
 
 	std::cout << "Start Destruct" << std::endl << std::endl;
 	return (0);
