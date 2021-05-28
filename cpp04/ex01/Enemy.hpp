@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.hpp                                        :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 20:06:31 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/28 16:46:40 by seunghoh         ###   ########.fr       */
+/*   Created: 2021/05/28 17:00:46 by seunghoh          #+#    #+#             */
+/*   Updated: 2021/05/28 17:18:09 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWEAPON_HPP
-# define AWEAPON_HPP
+#ifndef ENEMY_HPP
+# define ENEMY_HPP
 
 # include <string>
 
-class AWeapon
+class	Enemy
 {
 	private :
-		AWeapon();
+		Enemy();
 
 	protected :
-		std::string name_;
-		int			apcost_;
-		int			damage_;
+		int	hp_;
+		std::string	type_;
 
 	public :
-		AWeapon(const std::string& name, int apcost, int damage);
-		AWeapon(const AWeapon& ref);
-		AWeapon&	operator=(const AWeapon& ref);
-		virtual ~AWeapon();
-		std::string	getName() const;
-		int	getAPCost() const;
-		int getDamage() const;
-		virtual void attack() const = 0;
+		Enemy(int hp, const std::string& type);
+		Enemy(const Enemy& ref);
+		Enemy&	operator=(const Enemy& ref);
+		virtual ~Enemy();
+		int		getHP() const;
+		std::string getType() const;
+		virtual void	takeDamage(int damage);
 };
 
 #endif

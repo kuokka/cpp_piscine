@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.hpp                                        :+:      :+:    :+:   */
+/*   PowerFist.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 20:06:31 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/28 16:46:40 by seunghoh         ###   ########.fr       */
+/*   Created: 2021/05/28 16:09:53 by seunghoh          #+#    #+#             */
+/*   Updated: 2021/05/28 16:55:04 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWEAPON_HPP
-# define AWEAPON_HPP
+#ifndef POWERFIST_HPP
+# define POWERFIST_HPP
 
-# include <string>
+# include "AWeapon.hpp"
 
-class AWeapon
+class	PowerFist : public AWeapon
 {
 	private :
-		AWeapon();
-
-	protected :
-		std::string name_;
-		int			apcost_;
-		int			damage_;
 
 	public :
-		AWeapon(const std::string& name, int apcost, int damage);
-		AWeapon(const AWeapon& ref);
-		AWeapon&	operator=(const AWeapon& ref);
-		virtual ~AWeapon();
-		std::string	getName() const;
-		int	getAPCost() const;
-		int getDamage() const;
-		virtual void attack() const = 0;
+		PowerFist();
+		PowerFist(const PowerFist& ref);
+		PowerFist&	operator=(const PowerFist& ref);
+		~PowerFist();
+		void	attack() const ;
 };
 
 #endif
