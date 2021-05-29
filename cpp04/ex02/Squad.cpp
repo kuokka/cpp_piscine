@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 21:59:02 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/28 22:39:00 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/29 14:40:38 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,39 @@ Squad::Squad()
 {
 }
 
-Squad::Squad(const Squad&)
+Squad::Squad(const Squad& ref)
+	:	head_(NULL),
+		count_(0)
 {
-	// deep copy
+	t_marine	*iter;
+
+	iter = ref.head_;
+	while (iter != NULL)
+	{
+		push(iter->unit->clone());
+		iter = iter->next;
+	}
 }
 
-Squad&	Squad::operator=(const Squad&)
+Squad&	Squad::operator=(const Squad& ref)
 {
-	// deep copy
-	// if previos unit exist remove it
+	t_marine	*iter;
+	t_marine	*next;
+
+	iter = head_;
+	if (iter != NULL)
+	{
+		next = iter->next;
+		delete iter->unit;
+		delete iter;
+		iter = next;
+	}
+	iter = ref.head_;
+	while (iter != NULL)
+	{
+		push(iter->unit->clone());
+		iter = iter->next;
+	}
 	return *this;
 }
 

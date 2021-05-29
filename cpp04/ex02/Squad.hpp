@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 21:56:15 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/28 22:34:33 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/29 14:36:08 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Squad : public ISquad
 		}						t_marine;
 		t_marine	*head_;
 		int	count_;
-	
+
 	public :
 		Squad();
 		Squad(const Squad& ref);
