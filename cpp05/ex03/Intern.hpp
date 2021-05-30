@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 20:25:54 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/30 21:30:30 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/30 23:37:36 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class	Intern
 {
 	private :
 		class	Generator;
+		class	NoTypeException;
 		Generator*	generator_[3];
 
 	public :

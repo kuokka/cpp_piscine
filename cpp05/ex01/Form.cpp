@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 17:05:05 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/30 17:39:33 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/30 23:42:34 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,5 @@ std::ostream&	operator<<(std::ostream& os, const Form& ref)
 		os << "Signed";
 	else
 		os << "Not Signed";
-	os << std::endl;
 	return os;
 }
