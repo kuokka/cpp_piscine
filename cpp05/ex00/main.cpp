@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 17:29:17 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/30 16:41:00 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/30 23:42:06 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	test_constructor(int grade)
 	try
 	{
 		Bureaucrat	b("test", grade);
-		std::cout << b;
+		std::cout << b << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -31,7 +31,7 @@ void	test_increase(Bureaucrat &b)
 	try
 	{
 		b.increaseGrade();
-		std::cout << b;
+		std::cout << b << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -44,7 +44,7 @@ void	test_decrease(Bureaucrat &b)
 	try
 	{
 		b.decreaseGrade();
-		std::cout << b;
+		std::cout << b << std::endl;
 	}
 	catch (std::exception &e)
 	{

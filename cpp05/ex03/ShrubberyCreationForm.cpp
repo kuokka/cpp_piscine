@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 18:05:39 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/30 19:03:03 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/30 23:40:04 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ShrubberyCreationForm::beExecuted() const
 	std::string	file_name;
 
 	file_name = getTarget() + "_shrubbery";
-	std::ofstream out(file_name);
+	std::ofstream out(file_name.c_str());
 	if (out.is_open())
 	{
 		out << "   /\\" << std::endl

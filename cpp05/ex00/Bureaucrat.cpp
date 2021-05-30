@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 17:29:44 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/30 16:22:17 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/30 23:42:12 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ std::ostream&	operator<<(std::ostream& os, Bureaucrat& ref)
 	os << ref.getName()
 	   << ", bureaucrat grade "
 	   << ref.getGrade()
-	   << "."
-	   << std::endl;
+	   << ".";
 	return os;
 }
 

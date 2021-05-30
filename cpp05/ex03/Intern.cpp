@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 20:27:36 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/30 21:34:50 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/30 23:47:03 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ class	Intern::Generator
 		Form*	generate_RR(const std::string& target);
 		Form*	generate_SC(const std::string& target);
 		Form*	generate(const std::string& target);
+};
+
+class	Intern::NoTypeException : public std::exception
+{
+	const char*	what() const throw()
+	{
+		return "Invalid Type";
+	}
 };
 
 Form*	Intern::Generator::generate_PD(const std::string& target)
@@ -120,6 +128,8 @@ Form*	Intern::makeForm(std::string form_name, std::string target)
 			ret = generator_[i]->generate(target);
 	}
 	if (ret == 0)
-		std::cout << "Type is Invalid" << std::endl;
+		throw NoTypeException();
+	else
+		std::cout << "Intern creates " << *ret << std::endl;
 	return ret;
 }

@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 17:29:17 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/30 21:37:20 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/30 23:39:37 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ int		main()
 	Form	*f2 = intern.makeForm("shrubbery creation", "house");
 	Form	*f3 = intern.makeForm("presidential pardon", "house");
 
+	try
+	{
+		Form *f3 = intern.makeForm("robotomyrq", "hello");
+		std::cout << *f3 << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	b1.executeForm(*f1);
 	b1.executeForm(*f2);
 	b1.executeForm(*f3);
