@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 02:04:31 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/06/01 03:01:14 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/06/01 03:23:23 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ int		main(int argc, char **argv)
 	converter.toInt();
 	converter.toFloat();
 	converter.toDouble();
-	std::cout << static_cast<float>('a') << std::endl;
 	return (0);
 }
