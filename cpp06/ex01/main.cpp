@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 20:14:53 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/05/31 20:52:34 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/05/31 22:25:04 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,19 @@
 int		main()
 {
 
-	void*	data;
-	Data*	real1;
-	Data*	real2;
+	void*	raw;
+	Data*	data;
 
 	srand(time(NULL));
-	data = serialize();
-	real1 = reinterpret_cast<Data*>(data);
-	std::cout << sizeof(Data) << std::endl;
-	std::cout << *real1;
-	real2 = deserialize(data);
-	std::cout << *real2;
-	delete real1;
-	delete real2;
+	raw = serialize();
+	data = deserialize(raw);
+	std::cout << "*** Deserializing !! ***" << std::endl;
+	std::cout << *data << std::endl;
+	std::cout << "Size of Data Type : " << sizeof(Data) << std::endl;
+	delete[] reinterpret_cast<char *>(raw);
+	delete data->getS1();
+	delete data->getS2();
+	delete data;
+	system("leaks serializer");
 	return (0);
 }
