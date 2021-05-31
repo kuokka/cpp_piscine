@@ -6,13 +6,13 @@
 #    By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/31 16:00:14 by seunghoh          #+#    #+#              #
-#    Updated: 2021/05/31 19:03:21 by seunghoh         ###   ########.fr        #
+#    Updated: 2021/05/31 21:09:24 by seunghoh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = identify
 CC = clang++
-#CFLAGS = -Wall -Werror -Wextra --std=c++98
+CFLAGS = -Wall -Werror -Wextra --std=c++98
 
 SRCS = main.cpp \
 	   Base.cpp \
