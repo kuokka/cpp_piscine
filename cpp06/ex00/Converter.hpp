@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 02:39:53 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/06/01 02:51:15 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/06/01 03:30:50 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ class	Converter
 {
 	private :
 		std::string	literal_;
-
+		char		unit_literal_;
+		bool		is_number_;
+		
 	public :
 		Converter(std::string literal);
 		Converter(const Converter& ref);
