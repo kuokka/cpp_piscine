@@ -6,12 +6,14 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 02:45:04 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/06/01 03:55:27 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/06/01 19:50:37 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
+#include <limits>
+#include <cmath>
 #include "Converter.hpp"
 
 Converter::Converter(std::string literal)
@@ -47,7 +49,7 @@ Converter::~Converter()
 
 void	Converter::toChar()
 {
-	std::cout << "char : ";
+	std::cout << "char: ";
 	if (is_number_)
 	{
 		try
@@ -70,26 +72,77 @@ void	Converter::toChar()
 
 void	Converter::toInt()
 {
-	std::cout << "Int : ";
+	std::cout << "int: ";
 	if (is_number_)
 	{
-
+		try
+		{
+			std::cout << static_cast<int>(std::stoi(literal_)) << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << "impossible" << std::endl;
+		}
 	}
 	else
 	{
-
+		std::cout << static_cast<int>(unit_literal_) << std::endl;
 	}
-	std::cout << std::endl;
 }
 
 void	Converter::toFloat()
 {
-	std::cout << "Float : ";
+	float	data;
+
+	std::cout << "float: ";
+	if (is_number_)
+	{
+		try
+		{
+			data = static_cast<float>(std::stof(literal_));
+		}
+		catch (std::exception &e)
+		{
+			std::cout << "impossible" << std::endl;
+			return ;
+		}
+	}
+	else
+	{
+		data = static_cast<float>(unit_literal_);
+	}
+	std::cout << data;
+	if (data == std::numeric_limits<float>::infinity() ||
+		data == -std::numeric_limits<float>::infinity() ||
+		std::isnan(data))
+		std::cout << "f";
+	else if (static_cast<float>(static_cast<int>(data)) == data)
+		std::cout << ".0f";
+	else
+		std::cout << "f";
 	std::cout << std::endl;
 }
 
 void	Converter::toDouble()
 {
-	std::cout << "Double : ";
+	double	data;
+
+	std::cout << "double: ";
+	if (is_number_)
+	{
+		try
+		{
+			data = static_cast<double>(std::stod(literal_));
+		}
+		catch (std::exception &e)
+		{
+			std::cout << "impossible" << std::endl;
+		}
+	}
+	else
+		data = static_cast<double>(unit_literal_);
+	std::cout << data;
+	if (static_cast<double>(static_cast<int>(data)) == data)
+		std::cout << ".0";
 	std::cout << std::endl;
 }
