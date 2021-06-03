@@ -1,12 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:55:54 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/06/03 19:12:48 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/06/03 23:55:52 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +14,17 @@
 # define NO_SPACE_EXCEPTION	0
 # define NO_SPAN_EXCEPTION 1
 
+# include <exception>
+# include <vector>
+# include <algorithm>
+# include <iostream>
+
 class Span
 {
 	private :
 		Span();
-		int				*data_;
-		unsigned int	size_;
-		unsigned int	capacity_;
+		std::vector<int>	data_;
+		unsigned int		size_;
 		class	Exception : public std::exception
 		{
 			private :
@@ -38,23 +40,25 @@ class Span
 		Span(const Span& ref);
 		Span&	operator=(const Span& ref);
 		~Span();
-		void	addNumber(int value);
-		int		shortestSpan();
-		int		longestSpan();
-	
+		std::vector<int>	getData() const;
+		int				shortestSpan() const;
+		int				longestSpan() const;
+		void			addNumber(int value);
 		template <class T>
-		void	addRange(T begin, T end)
+		void	addNumber(T begin, T end)
 		{
-			if (size_ == capacity_ ||
+			if (size_ == data_.size() ||
 				static_cast<unsigned int>(end - begin) >
-				capacity_ - size_)
+				size_ - data_.size())
 				throw Exception(NO_SPACE_EXCEPTION);
 			while (begin != end)
 			{
-				data_[size_++] = *begin;
+				data_.push_back(*begin);
 				begin++;
 			}
 		}	
 };
+
+std::ostream&	operator<<(std::ostream& os, const Span& ref);
 
 #endif
