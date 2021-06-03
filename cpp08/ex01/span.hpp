@@ -11,7 +11,7 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-# define NO_SPACE_EXCEPTION	0
+# define NO_SPACE_EXCEPTION 0
 # define NO_SPAN_EXCEPTION 1
 
 # include <exception>
