@@ -6,12 +6,11 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 01:34:31 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/06/03 15:41:46 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/06/03 15:54:42 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <vector>
-#include <iostream>
 #include "easyfind.hpp"
 
 int		main()
@@ -24,7 +23,7 @@ int		main()
 	a.push_back(4);
 	try
 	{
-		std::cout << "Found! : " << easyfind(a, 2) << std::endl;
+		easyfind(a, 2);
 	}
 	catch (std::exception &e)
 	{
@@ -32,7 +31,7 @@ int		main()
 	}
 	try
 	{
-		std::cout << "Found! : " << easyfind(a, -2) << std::endl;
+		easyfind(a, -2);
 	}
 	catch (std::exception &e)
 	{
