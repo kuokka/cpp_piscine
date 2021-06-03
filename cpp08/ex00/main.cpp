@@ -6,12 +6,13 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 01:34:31 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/06/03 23:57:15 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/06/04 01:57:33 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <vector>
 #include "easyfind.hpp"
+
 
 int		main()
 {
@@ -40,6 +41,30 @@ int		main()
 	try
 	{
 		easyfind(a, 5);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		easyfind(a, 1);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		easyfind(a, 3);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		easyfind(a, 4);
 	}
 	catch (std::exception &e)
 	{
