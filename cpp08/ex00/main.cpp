@@ -6,7 +6,7 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 01:34:31 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/06/03 15:54:42 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/06/03 23:57:15 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ int		main()
 	try
 	{
 		easyfind(a, -2);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		easyfind(a, 5);
 	}
 	catch (std::exception &e)
 	{

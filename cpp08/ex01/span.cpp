@@ -6,48 +6,42 @@
 /*   By: seunghoh <seunghoh@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 16:12:05 by seunghoh          #+#    #+#             */
-/*   Updated: 2021/06/03 19:12:24 by seunghoh         ###   ########.fr       */
+/*   Updated: 2021/06/04 01:31:02 by seunghoh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <exception>
 #include "span.hpp"
 
+namespace
+{
+	int	ft_abs(int n)
+	{
+		if (n < 0)
+			return -n;
+		return n;
+	}
+}
+
 Span::Span(unsigned int n)
-	:	data_(new int[n]),
-		size_(0),
-		capacity_(n)
+	:	size_(n)
 {}
 
 Span::Span(const Span& ref)
-	:	data_(new int[ref.capacity_]),
-		size_(ref.size_),
-		capacity_(ref.capacity_)
-{
-	for (unsigned int i = 0; i < size_; ++i)
-	{
-		data_[i] = ref.data_[i];
-	}
-}
+	:	data_(ref.data_),
+		size_(ref.size_)
+{}
 
 Span&	Span::operator=(const Span& ref)
 {
 	if (this == &ref)
 		return *this;
-	delete[] data_;
-	data_ = new int[ref.capacity_];
+	data_ = ref.data_;
 	size_ = ref.size_;
-	capacity_ = ref.capacity_;
-	for (unsigned int i = 0; i < size_; ++i)
-	{
-		data_[i] = ref.data_[i];
-	}
 	return *this;
 }
 
 Span::~Span()
 {
-	delete[] data_;
 }
 
 Span::Exception::Exception(char type)
@@ -63,10 +57,63 @@ const char*	Span::Exception::what() const throw()
 	return "Exception";
 }
 
+std::vector<int>	Span::getData() const
+{
+	return data_;
+}
+
 void	Span::addNumber(int value)
 {
-	if (size_ == capacity_)
+	if (data_.size() == size_)
 		throw Exception(NO_SPACE_EXCEPTION);
-	data_[size_++] = value;
+	data_.push_back(value);
+}
+
+int		Span::shortestSpan() const
+{
+	if (data_.size() < 2)
+		throw Exception(NO_SPAN_EXCEPTION);
+	std::vector<int>	temp = data_;
+	std::sort (temp.begin(), temp.end());
+	std::vector<int>::iterator	it = temp.begin();
+	int	before = *it;
+	++it;
+	int	min = ft_abs(*it - before);
+	before = *it;
+	++it;
+	while (it != temp.end())
+	{
+		if (ft_abs(*it - before) < min)
+			min = ft_abs(*it - before);
+		before = *it;
+		++it;
+	}
+	return (min);	
+}
+
+int		Span::longestSpan() const
+{
+	int	max;
+	int	min;
+
+	if (data_.size() < 2)
+		throw Exception(NO_SPAN_EXCEPTION);
+	max = *std::max_element(data_.begin(), data_.end());
+	min = *std::min_element(data_.begin(), data_.end());
+	return (max - min);
+}
+
+std::ostream&	operator<<(std::ostream& os, const Span& ref)
+{
+	std::vector<int>	data = ref.getData();
+	std::vector<int>::iterator	it;
+
+	it = data.begin();
+	while (it != data.end())
+	{
+		os << *it << " ";
+		++it;
+	}
+	return os;
 }
 
