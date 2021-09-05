@@ -6,7 +6,7 @@
 [![Score Badge](https://img.shields.io/badge/Score-100/100-blue)]()
 [![Developer Badge](https://img.shields.io/badge/By-seunghoh-red)]()
 
-C++ Piscine 과재 00 ~ 08 코드
+C++ Piscine 과제 00 ~ 08 코드
 
 ## 개발 환경 설정
 
